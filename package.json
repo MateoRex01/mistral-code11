@@ -9,7 +9,8 @@
     "three": "^0.160.0"
   },
   "devDependencies": {
-    "esbuild": "^0.28.2"
+    "esbuild": "^0.28.2",
+    "playwright": "^1.65.1"
   },
   "scripts": {
     "start": "npx serve .",

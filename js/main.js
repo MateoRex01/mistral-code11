@@ -37,6 +37,15 @@ class Game {
 
   /* ---------------- inicial ---------------- */
   boot() {
+    try {
+      this.bootInner();
+    } catch (err) {
+      console.error('MEKANIK: error de arranque', err);
+      const el = document.getElementById('loading');
+      if (el) { el.querySelector('.load-sub').textContent = 'Error de arranque: ' + err.message + ' (revisa la consola F12)'; el.querySelector('.load-sub').style.color = '#ff9b8a'; }
+    }
+  }
+  bootInner() {
     this.initRenderer();
     // escena del menú (showroom)
     this.menuScene = new THREE.Scene();
@@ -74,6 +83,7 @@ class Game {
 
     this.mainMenu.show();
     this.loadMenuShowcase();
+    this.mode = 'menu';
     setTimeout(() => document.getElementById('loading').classList.add('hide'), 700);
 
     this.clock = new THREE.Clock();
