@@ -135,7 +135,7 @@ class Game {
     this.renderer.setSize(w, h);
     this.renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2) * (settings.data.resolutionScale || 1));
     if (this.camera) { this.camera.aspect = w / h; this.camera.updateProjectionMatrix(); }
-    this.menuCamera.aspect = w / h; this.menuCamera.updateProjectionMatrix();
+    if (this.menuCamera) { this.menuCamera.aspect = w / h; this.menuCamera.updateProjectionMatrix(); }
   }
 
   applyGravity() {
