@@ -1,0 +1,1 @@
+{"name":"mekanik","version":"1.0.0","type":"module","private":true,"description":"Sandbox 3D de construcción de vehículos — Three.js + cannon-es","dependencies":{"cannon-es":"^0.20.0","three":"^0.160.0"}}

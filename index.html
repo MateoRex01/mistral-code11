@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEKANIK — Taller de Máquinas</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app"></div>
+  <div id="menuRoot"></div>
+  <div id="buildRoot"></div>
+  <div id="hudRoot"></div>
+  <div id="loading"><div class="load-title">MEKANIK</div><div class="load-sub">Preparando el taller…</div><div class="load-bar"><i></i></div></div>
+  <div id="toast"></div>
+  <script type="importmap">
+  { "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+      "cannon-es": "https://unpkg.com/cannon-es@0.20.0/dist/cannon-es.js"
+  } }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
