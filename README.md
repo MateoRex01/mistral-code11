@@ -6,6 +6,10 @@ tecnologías web abiertas.
 
 ## ▶️ Ejecutar
 
+Opción 0 (doble clic, nada que instalar): abre **`mekanika.html`** — archivo único autocontenido
+(CSS + todo el JS empaquetado) que funciona directamente en el navegador. Se regenera tras
+editar el código con `npm install && npm run standalone` (empaquetado con esbuild).
+
 Opción 1 (sin instalar nada):
 - Abre `index.html` con un servidor estático local (los ES modules no funcionan con `file://`):
 

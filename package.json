@@ -1,1 +1,18 @@
-{"name":"mekanik","version":"1.0.0","type":"module","private":true,"description":"Sandbox 3D de construcción de vehículos — Three.js + cannon-es","dependencies":{"cannon-es":"^0.20.0","three":"^0.160.0"}}
+{
+  "name": "mekanik",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Sandbox 3D de construcción de vehículos — Three.js + cannon-es",
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "scripts": {
+    "start": "npx serve .",
+    "standalone": "esbuild js/main.js --bundle --format=esm --minify --outfile=/tmp/mek.bundle.js && node make-standalone.mjs"
+  }
+}
