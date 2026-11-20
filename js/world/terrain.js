@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import * as CANNON from 'cannon-es';
 import { clamp, lerp } from '../core/utils.js';
+import { distToPoly } from './maps.js';
 
 export class Terrain {
   constructor(scene, world, def, edits = null) {

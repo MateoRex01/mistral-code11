@@ -231,6 +231,7 @@ class Game {
     this.spawnPoint = new THREE.Vector3(sp[0], this.terrain.sampleHeight(sp[0], sp[1]) + 1, sp[1]);
 
     this.sim.world = this.world;
+    this.sim.particles.attach(this.scene);
     this.sim.scene = this.scene;
     this.sim.env = this.env;
     this.sim.terrain = this.terrain;
@@ -254,6 +255,7 @@ class Game {
   }
 
   clearWorld() {
+    if (this.sim && this.sim.particles) this.sim.particles.attach(null);
     if (this.scene) {
       this.scene.traverse(o => { if (o.isMesh && o.geometry) o.geometry.dispose(); });
     }
@@ -264,7 +266,8 @@ class Game {
   enterSandbox() {
     this.mode = 'sandbox';
     this.mainMenu.closeSub();
-    document.getElementById('menuRoot').innerHTML = '';
+    const mr = document.getElementById('menuRoot');
+    mr.innerHTML = ''; mr.style.display = 'none';
     this.seated = false;
     const p = this.player;
     if (!p.mesh) {
@@ -470,6 +473,7 @@ class Game {
       const inst = this.spawnCreation(data, pos, 0);
       this.updateFocus(inst);
       this.enterVehicleIndex(this.sim.instances.indexOf(inst));
+      this.hud.build();
     } else {
       const pos = new THREE.Vector3(this.builder.padPos.x, this.terrain.sampleHeight(this.builder.padPos.x, this.builder.padPos.z) + 2, this.builder.padPos.z);
       this.spawnCreation(data, pos, 0);

@@ -9,7 +9,7 @@ export const defaults = {
   antialias: true,
   visualEffects: true,
   fpsCap: 0,
-  volumeMaster: .8, volumeMusic: .5, volumeSfx: .8, soundVehicles: true, soundAmbient: true,
+  volumeMaster: .8, volumeMusic: .5, volumeSfx: .8, volumeAmb: .8, soundVehicles: true, soundAmbient: true,
   mouseSensitivity: 1, invertY: false,
   bindings: null,
   showTutorials: true, showIndicators: true, buildSpeed: 1, physicsDamage: true, buildLimits: true,

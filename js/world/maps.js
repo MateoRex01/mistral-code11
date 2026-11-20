@@ -13,8 +13,8 @@ import { fbm, clamp, lerp, mulberry32 } from '../core/utils.js';
 
 function key(x, z) { return `${x.toFixed(1)},${z.toFixed(1)}`; }
 
-/* helper: distancia mínima de (x,z) a una polilínea */
-function distToPoly(x, z, pts) {
+/* helper: distancia mínima de (x,z) a una polilínea (lo usa terrain.js para allanar carreteras) */
+export function distToPoly(x, z, pts) {
   let best = 1e9, bi = 0, bf = 0;
   for (let i = 0; i < pts.length - 1; i++) {
     const [ax, az] = pts[i], [bx, bz] = pts[i + 1];

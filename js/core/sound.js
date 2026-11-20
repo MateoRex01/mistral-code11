@@ -39,12 +39,13 @@ export function initAudio() {
 }
 
 export function applyVolumes() {
-  if (!ctx) return;
-  master.gain.value = settings.data.volumeMaster;
-  musicG.gain.value = settings.data.volumeMusic * .5;
-  sfxG.gain.value = settings.data.volumeSfx;
+  if (!ctx || !master) return;
+  const V = k => { const v = +settings.data[k]; return Number.isFinite(v) ? v : .8; };
+  master.gain.value = V('volumeMaster');
+  musicG.gain.value = V('volumeMusic') * .5;
+  sfxG.gain.value = V('volumeSfx');
   engG.gain.value = 0;
-  ambG.gain.value = settings.data.volumeAmb * settings.data.volumeSfx;
+  ambG.gain.value = V('volumeAmb') * V('volumeSfx');
 }
 
 export function resumeAudio() { if (ctx && ctx.state === 'suspended') ctx.resume(); }

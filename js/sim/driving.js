@@ -23,8 +23,12 @@ class Particles {
     geo.setAttribute('color', new THREE.BufferAttribute(this.col, 3));
     this.points = new THREE.Points(geo, new THREE.PointsMaterial({ size: .5, vertexColors: true, transparent: true, opacity: .85, depthWrite: false }));
     this.points.frustumCulled = false;
-    scene.add(this.points);
+    if (scene) scene.add(this.points);
     this.cursor = 0;
+  }
+  attach(scene) {
+    if (scene && !this.points.parent) scene.add(this.points);
+    else if (this.points.parent && this.points.parent !== scene) this.points.parent.remove(this.points);
   }
   emit(p, v, color, life = 1) {
     const i = this.cursor; this.cursor = (this.cursor + 1) % this.max;

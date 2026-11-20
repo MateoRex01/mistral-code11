@@ -17,6 +17,7 @@ export class MainMenu {
   }
 
   show() {
+    this.root.style.display = 'flex';
     this.root.innerHTML = '';
     const left = document.createElement('div');
     left.className = 'menu-left';
